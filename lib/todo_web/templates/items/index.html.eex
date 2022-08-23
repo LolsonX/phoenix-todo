@@ -1,0 +1,23 @@
+<h1>Items</h1>
+
+<%= for item <- @items do %>
+  <h3><%= item.description %></h3>
+
+  <%= if item.completed do %>
+    <p style="color:green;">Completed</p>
+  <% else %>
+    <p style="color:red;">To be done </p>
+    <%= link("Complete", to: "/items/#{item.id}/complete", method: :patch) %>
+  <% end %>
+  <%= link("Delete", to: "/items/#{item.id}", method: :delete) %>
+  <hr>
+<% end %>
+
+<%= form_for @changeset, Routes.items_path(@conn, :create), fn f -> %>
+
+  <label>
+    Add a new todo item: <%= text_input f, :description %>
+  </label>
+
+  <%= submit "Submit" %>
+<% end %>
