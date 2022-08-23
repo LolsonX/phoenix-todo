@@ -23,6 +23,11 @@
   background-color: #f2dede;
   border-color: #ebccd1;
 }
+.alert-success {
+  color: #53a942;
+  background-color: #def2e3;
+  border-color: #cdebcc;
+}
 .alert p {
   margin-bottom: 0;
 }
