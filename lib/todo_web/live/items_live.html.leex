@@ -1,0 +1,23 @@
+<h1>Items</h1>
+
+<form action="#" phx-submit="create">
+
+  <label>
+    Add a new todo item: <%= text_input :item, :description %>
+  </label>
+
+  <%= submit "Create", phx_disable_with: "Adding" %>
+</form>
+
+<%= for item <- @items do %>
+  <h3><%= item.description %></h3>
+
+  <%= if item.completed do %>
+    <p style="color:green;">Completed</p>
+  <% else %>
+    <p style="color:red;">To be done </p>
+    <button phx-click="complete" phx-value-id="<%= item.id %>"" %> Complete </button>
+  <% end %>
+  <button phx-click="delete" phx-value-id="<%= item.id %>"" %> Delete </button>
+  <hr>
+<% end %>

@@ -21,6 +21,8 @@ defmodule TodoWeb.Router do
     post "/items", ItemsController, :create
     patch "/items/:id/complete", ItemsController, :complete
     delete "items/:id", ItemsController, :delete
+
+    live "/live_view", ItemsLive, :index
   end
 
   # Other scopes may use custom stacks.
